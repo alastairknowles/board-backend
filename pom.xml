@@ -8,12 +8,42 @@
     <artifactId>board-backend</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+            <spring.version>1.5.1</spring.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.stormpath.spring</groupId>
             <artifactId>stormpath-default-spring-boot-starter</artifactId>
-            <version>1.5.1</version>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.version}.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

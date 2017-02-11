@@ -1,18 +1,20 @@
 package com.prism.hr.board;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stormpath.spring.config.StormpathWebSecurityConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
 @SpringBootApplication
-public class Application extends WebSecurityConfigurerAdapter {
+public class ApplicationConfiguration extends WebSecurityConfigurerAdapter {
     
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        SpringApplication.run(ApplicationConfiguration.class);
     }
     
     @Override
@@ -21,6 +23,11 @@ public class Application extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/api/**").fullyAuthenticated();
+    }
+    
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
     
 }

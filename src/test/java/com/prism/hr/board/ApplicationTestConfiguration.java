@@ -50,4 +50,8 @@ public class ApplicationTestConfiguration {
         return USER_INDEX;
     }
     
+    Map<String, RegistrationDTO> getUserCache() {
+        return USER_CACHE;
+    }
+    
 }

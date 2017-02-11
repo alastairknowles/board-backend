@@ -1,5 +1,6 @@
 package com.prism.hr.board.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stormpath.sdk.oauth.AccessTokenList;
 
 public class RegistrationDTO {
@@ -12,6 +13,7 @@ public class RegistrationDTO {
     
     private String password;
     
+    @JsonIgnore
     private AccessTokenList accessTokens;
     
     public String getGivenName() {
